@@ -8,6 +8,7 @@ class MentionsController < ApplicationController
   end
 
   def index
+    @mentions = Mention.all
   end
 
   def edit
