@@ -1,4 +1,6 @@
 class MentionsController < ApplicationController
+  before_action :set_mention, only: [:edit, :update, :destroy]
+
   def new
     @mention = Mention.new
   end
@@ -25,11 +27,9 @@ class MentionsController < ApplicationController
   end
 
   def edit
-    @mention = Mention.find(params[:id])
   end
 
   def update
-    @mention = Mention.find(params[:id])
     if @mention.update(mention_params)
       redirect_to mentions_path, notice: "更新しました"
     else
@@ -38,7 +38,6 @@ class MentionsController < ApplicationController
   end
 
   def destroy
-    @mention = Mention.find(params[:id])
     @mention.destroy
     redirect_to mentions_path, notice: "削除しました"
   end
@@ -47,5 +46,9 @@ class MentionsController < ApplicationController
 
   def mention_params
     params.require(:mention).permit(:content)
+  end
+
+  def set_mention
+    @mention = Mention.find(params[:id])
   end
 end
