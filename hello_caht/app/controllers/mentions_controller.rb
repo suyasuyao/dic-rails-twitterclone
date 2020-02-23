@@ -3,12 +3,20 @@ class MentionsController < ApplicationController
     @mention = Mention.new
   end
 
+  def confirm
+    @mention = Mention.new(mention_params)
+  end
+
   def create
     @mention = Mention.create(mention_params)
-    if @mention.save
-      redirect_to mentions_path, notice: "作成しました"
-    else
+    if params[:back]
       render :new
+    else
+      if @mention.save
+        redirect_to mentions_path, notice: "作成しました"
+      else
+        render :new
+      end
     end
   end
 
