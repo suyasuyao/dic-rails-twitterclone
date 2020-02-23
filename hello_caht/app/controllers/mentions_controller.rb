@@ -5,7 +5,11 @@ class MentionsController < ApplicationController
 
   def create
     @mention = Mention.create(mention_params)
-    redirect_to mentions_path
+    if @mention.save
+      redirect_to mentions_path, notice: "作成しました"
+    else
+      render :new
+    end
   end
 
   def index
@@ -19,7 +23,7 @@ class MentionsController < ApplicationController
   def update
     @mention = Mention.find(params[:id])
     if @mention.update(mention_params)
-      redirect_to mentions_path
+      redirect_to mentions_path, notice: "更新しました"
     else
       render :edit
     end
@@ -28,7 +32,7 @@ class MentionsController < ApplicationController
   def destroy
     @mention = Mention.find(params[:id])
     @mention.destroy
-    redirect_to mentions_path
+    redirect_to mentions_path, notice: "削除しました"
   end
 
   private

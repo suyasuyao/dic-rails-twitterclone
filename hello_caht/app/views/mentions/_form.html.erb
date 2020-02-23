@@ -1,5 +1,16 @@
 <%= form_with(model: @mention, local: true) do |f| %>
 
+<% if @mention.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @mention.errors.count %>件のエラーがあります。</h2>
+  <ul>
+    <% @mention.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <div class="content">
   <%= f.label :content %>
   <%= f.text_field :content %>
