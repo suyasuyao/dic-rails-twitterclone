@@ -9,6 +9,7 @@
   <% @mentions.each  do |mention| %>
   <tr>
     <td><%= mention.content %></td>
+    <td><%= link_to "編集する", edit_mention_path(mention.id) %></td>
   </tr>
   <% end %>
 </table>

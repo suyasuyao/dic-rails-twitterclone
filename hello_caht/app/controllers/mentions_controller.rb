@@ -5,6 +5,7 @@ class MentionsController < ApplicationController
 
   def create
     @mention = Mention.create(mention_params)
+    redirect_to mentions_path
   end
 
   def index
@@ -12,6 +13,16 @@ class MentionsController < ApplicationController
   end
 
   def edit
+    @mention = Mention.find(params[:id])
+  end
+
+  def update
+    @mention = Mention.find(params[:id])
+    if @mention.update(mention_params)
+      redirect_to mentions_path
+    else
+      render :edit
+    end
   end
 
   def destroy
