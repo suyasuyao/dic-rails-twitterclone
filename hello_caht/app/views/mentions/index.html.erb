@@ -10,6 +10,7 @@
   <tr>
     <td><%= mention.content %></td>
     <td><%= link_to "編集する", edit_mention_path(mention.id) %></td>
+    <td><%= link_to "削除する", mention_path(mention.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
   <% end %>
 </table>

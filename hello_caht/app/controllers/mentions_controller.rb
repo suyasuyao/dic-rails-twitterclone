@@ -26,6 +26,9 @@ class MentionsController < ApplicationController
   end
 
   def destroy
+    @mention = Mention.find(params[:id])
+    @mention.destroy
+    redirect_to mentions_path
   end
 
   private
