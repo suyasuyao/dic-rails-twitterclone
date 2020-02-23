@@ -9,7 +9,10 @@ ARG BASEDIR
 RUN apt-get update -qq && \
   apt-get install -y build-essential \ 
   libpq-dev \        
-  nodejs           
+  nodejs \
+  npm 
+
+RUN npm install
 
 # 作業ディレクトリの作成、設定
 RUN mkdir $BASEDIR
