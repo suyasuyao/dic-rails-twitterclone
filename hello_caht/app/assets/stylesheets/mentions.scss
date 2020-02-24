@@ -1,9 +1,16 @@
-h1 {
-  padding-bottom: 3rem;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 div.main.container {
-  margin-bottom: 3rem;
+  margin-bottom: auto;
+}
+
+
+h1 {
+  padding-bottom: 3rem;
 }
 
 form.mention ul {
