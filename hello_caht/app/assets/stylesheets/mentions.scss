@@ -1,3 +1,28 @@
-// Place all the styles related to the mentions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+div.main.container {
+  margin-bottom: auto;
+}
+
+
+h1 {
+  padding-bottom: 3rem;
+}
+
+form.mention ul {
+  padding-left: 0rem;
+}
+
+form.mention ul li {
+  padding-bottom: 0.5rem;
+  list-style: none;
+}
+
+form.mention label {
+  margin-right: 2rem;
+  width: 6rem;
+}
