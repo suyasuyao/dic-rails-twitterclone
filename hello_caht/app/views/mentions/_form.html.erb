@@ -15,11 +15,7 @@
   <ul>
     <li>
       <%= f.label "発言" %>
-      <%= f.text_field :content, readonly: 'readonly' %>
-    </li>
-    <li>
-      <%= f.label "発言時間" %>
-      <%= f.text_field :created_at, value: @mention.created_at.to_s(:datetime), disabled: "disabled" %>
+      <%= f.text_field :content %>
     </li>
     <li>
       <%= f.submit class: "submit" %>
